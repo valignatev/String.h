@@ -17,31 +17,31 @@ int main() {
     printf("\nsplit empty string\n");
     String lit_empty = string_lit("");
     size_t splitted_amount1 = string_split(lit_empty, string_lit(","), &strings[0], 10, NULL);
-    printf("splitted_amount1: %ld\n", splitted_amount1);
+    printf("string: \"%.*s\", splitted_amount1: %ld\n", string_spread(lit_empty), splitted_amount1);
 
     printf("\nsplit by 1 char separator\n");
     String lit = string_lit("a, b, c, d, e");
     size_t splitted_amount2 = string_split(lit, string_lit(","), &strings[0], 10, NULL);
 
-    printf("splitted_amount2: %ld\n", splitted_amount2);
+    printf("string: \"%.*s\", splitted_amount2: %ld\n", string_spread(lit), splitted_amount2);
     for (int i = 0; i < splitted_amount2; i++) {
-        printf("chunk: %.*s\n", string_spread(strings[i]));
+        printf("chunk: \"%.*s\"\n", string_spread(strings[i]));
     }
 
     printf("\nsplit by separator with more than 1 character\n");
     String lit_hard = string_lit("one;;two;;three;;four;;пять");
     size_t splitted_amount3 = string_split(lit_hard, string_lit(";;"), &strings[0], 10, NULL);
 
-    printf("splitted_amount3: %ld\n", splitted_amount3);
+    printf("string: \"%.*s\", splitted_amount3: %ld\n", string_spread(lit_hard), splitted_amount3);
     for (int i = 0; i < splitted_amount3; i++) {
-        printf("chunk: %.*s\n", string_spread(strings[i]));
+        printf("chunk: \"%.*s\"\n", string_spread(strings[i]));
     }
 
     printf("\nstarts and ends with separator\n");
     String lit_kek = string_lit("kekwlolkekhahakekkeklmaokek");
     size_t splitted_amount4 = string_split(lit_kek, string_lit("kek"), &strings[0], 10, NULL);
 
-    printf("splitted_amount3: %ld\n", splitted_amount4);
+    printf("string: \"%.*s\", splitted_amount3: %ld\n", string_spread(lit_kek), splitted_amount4);
     for (int i = 0; i < splitted_amount4; i++) {
         printf("chunk: %.*s\n", string_spread(strings[i]));
     }
@@ -51,7 +51,7 @@ int main() {
     String outbuf[2];
     size_t splitted_amount5 = string_split(limited, string_lit(","), outbuf, 2, NULL);
 
-    printf("splitted_amount5: %ld\n", splitted_amount5);
+    printf("string: \"%.*s\", splitted_amount5: %ld\n", string_spread(limited), splitted_amount5);
     printf("outbuf[0]: '%.*s' (len=%ld)\n", string_spread(outbuf[0]), outbuf[0].count);
     if (splitted_amount5 > 1) {
         printf("outbuf[1]: '%.*s' (len=%ld)\n", string_spread(outbuf[1]), outbuf[1].count);
