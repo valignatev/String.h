@@ -80,7 +80,7 @@ int main() {
 
     printf("\nto_cstring\n");
     String str = string_make("Hello, world!", 13);
-    char *buf = malloc(str.count + 1);
+    char *buf = (char *)malloc(str.count + 1);
     string_to_cstring(str, buf);
 
     printf("cstr: \"%s\"\n", buf);

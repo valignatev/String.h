@@ -16,7 +16,7 @@ typedef struct {
 } String;
 
 
-static String string_whitespaces = {6, "\t\n\v\f\r "};
+static const String string_whitespaces = {6, "\t\n\v\f\r "};
 
 
 // printf helper
